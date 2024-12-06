@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_primary"
+    tools:context=".fragments.SearchFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="75dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/mainOverlay"
+            android:background="@drawable/wavefaded"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="visible" />
+
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Filter box -->
+        <LinearLayout
+            android:id="@+id/filterLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/serach_filter_bg"
+            android:layoutDirection="locale"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Type Spinner -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_gravity="start">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/user_type"
+                    android:orientation="horizontal"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/lexend"
+
+                />
+
+
+                <Spinner
+                    android:id="@+id/spinnerType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_back_bg"
+                    android:layout_marginStart="10dp"
+                    android:padding="5dp" />
+
+            </LinearLayout>
+
+            <!-- Gender Spinner -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_gravity="start">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/gender_colon"
+                    android:orientation="horizontal"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/lexend"
+
+                    />
+
+                <Spinner
+                    android:id="@+id/spinnerGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_back_bg"
+
+                    android:layout_marginStart="10dp"
+                    android:padding="5dp" />
+
+            </LinearLayout>
+
+            <!-- Only Tour Guide Filters -->
+            <LinearLayout
+                android:id="@+id/onlyFreeDiverFilterLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <!-- Country Spinner -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="start"
+
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/country"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/lexend"
+
+                        />
+
+
+                    <Spinner
+                        android:id="@+id/spinnerCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/round_back_bg"
+
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical"
+                        android:padding="5dp"/>
+
+
+
+                </LinearLayout>
+
+                <!-- Rating -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="5dp"
+                    >
+
+                    <TextView
+                        android:layout_gravity="start"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rating"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/lexend"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+
+                        >
+
+                        <com.chaek.android.RatingBar
+                            android:id="@+id/ratingBarStart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:rating_flag="TEN"
+                            app:rating_star_color="@color/orange_primary"
+                            app:rating_star_empty_color="@color/grey"
+                            app:rating_star_height="23dp"
+                            app:rating_star_margin="5dp"
+                            app:rating_star_width="23dp"
+                            app:rating_start_count="0" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/to"
+                            android:layout_gravity="center"
+                            android:textSize="20sp"
+                            android:layout_marginStart="8dp"
+
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/lexend"
+
+                            />
+
+
+
+                        <com.chaek.android.RatingBar
+                            android:id="@+id/ratingBarEnd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:rating_flag="TEN"
+                            android:layout_marginStart="8dp"
+
+                            app:rating_star_color="@color/orange_primary"
+                            app:rating_star_empty_color="@color/grey"
+                            app:rating_star_height="23dp"
+                            app:rating_star_margin="5dp"
+                            app:rating_star_width="23dp"
+                            app:rating_start_count="10" />
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/grey">
+
+        <!-- Search bar -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black_primary"
+            android:layoutDirection="ltr">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/round_back_bg"
+                android:elevation="0dp"
+                android:imeOptions="actionSearch"
+
+                android:textColorHint="@color/white"
+                app:defaultQueryHint="@string/search"
+                app:iconifiedByDefault="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnFilter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:queryBackground="@android:color/transparent"
+                app:queryHint="@string/search"
+                app:searchIcon="@drawable/search_icon" />
+
+            <!-- Filter button -->
+            <ImageButton
+                android:id="@+id/btnFilter"
+                android:layout_width="22dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@drawable/menu_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/searchView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:background="@color/orange_primary"/>
+
+    </LinearLayout>
+
+</FrameLayout>

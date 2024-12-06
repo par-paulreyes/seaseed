@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "793874832676",
+    "firebase_url": "https://seaseeddb-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "seaseeddb",
+    "storage_bucket": "seaseeddb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793874832676:android:63c00599ddbb047f8667b1",
+        "android_client_info": {
+          "package_name": "com.seass.seaseedapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "793874832676-jsld4cthncnv5599f91nc381n5s3kuf1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.seass.seaseedapp",
+            "certificate_hash": "3f6762f0b020e58b6670eee7e8bb5e8f1c67a524d2b23c2c577009a450550424"
+          }
+        },
+        {
+          "client_id": "793874832676-jsld4cthncnv5599f91nc381n5s3kuf1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLxaUsUMMbgBQ0N8VrzXQNiKIeYqrWm4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "793874832676-jsld4cthncnv5599f91nc381n5s3kuf1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

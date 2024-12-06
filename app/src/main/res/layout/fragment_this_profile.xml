@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ThisProfileFragment"
+    android:background="@color/dark_primary">
+
+    <!-- Main overlay -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        >
+
+        <androidx.core.widget.NestedScrollView
+            android:background="@drawable/wavefaded"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mainOverlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layoutDirection="ltr"
+                    android:background="@drawable/round_back_bg"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                    <!-- Username Text -->
+                    <TextView
+                        android:id="@+id/username"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="16dp"
+
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/lexend"
+
+                        android:maxLines="2"
+
+                        android:text="@string/username"
+                        android:textColor="@color/black"
+                        app:autoSizeMaxTextSize="40sp"
+                        app:autoSizeMinTextSize="10sp"
+
+                        app:autoSizeStepGranularity="1dp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/accountIcon"
+                        app:layout_constraintTop_toTopOf="@+id/accountIcon" />
+
+                    <!-- Profile Picture -->
+                    <ImageView
+                        android:id="@+id/accountIcon"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/account_icon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <!-- Bio Text -->
+                    <TextView
+                        android:id="@+id/bio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/lexend"
+                        android:gravity="top|start"
+                        android:visibility="gone"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/accountIcon" />
+
+                    <!-- Birth Date Text -->
+                    <TextView
+                        android:id="@+id/birthDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/lexend"
+                        android:text="@string/birthDate"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/accountIcon"
+                        app:layout_constraintStart_toEndOf="@+id/accountIcon"
+                        app:layout_constraintTop_toBottomOf="@+id/username"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <!-- Gender Text -->
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/lexend"
+                        android:text="@string/gender"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/birthDate"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/birthDate"
+                        app:layout_constraintTop_toBottomOf="@+id/username" />
+
+                    <RelativeLayout
+                        android:id="@+id/userDataLoadingOverlay"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tourGuideLayout"
+                    >
+
+                    <TextView
+                        android:id="@+id/sessionPackagesORbookedSessionsHeadline"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/orange_primary"
+                        android:fontFamily="@font/lexend"
+                        android:gravity="center"
+                        android:text="@string/my_session_packages"
+                        android:textColor="@color/white"
+                        android:textSize="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/noAvailableSessionPackages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/lexend"
+                        android:gravity="center"
+                        android:text="@string/you_have_no_available_session_packages"
+                        android:textColor="@color/grey"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sessionPackagesORbookedSessionsHeadline" />
+
+                    <!-- Horizontal RecyclerView for Notes -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewSessions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:clipToPadding="false"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:scrollbars="none"
+                        app:layout_constraintTop_toBottomOf="@id/noAvailableSessionPackages"
+                        android:layoutDirection="ltr"/>
+
+
+                    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                        android:id="@+id/calendarView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toBottomOf="@+id/recyclerViewSessions"
+                        app:mcv_dateTextAppearance="@style/DateTextAppearance"
+                        app:mcv_firstDayOfWeek="sunday"
+                        app:mcv_headerTextAppearance="@style/HeaderTextAppearance"
+                        app:mcv_leftArrow="@drawable/arrow_back_icon"
+                        app:mcv_rightArrow="@drawable/arrow_forward_icon"
+                        app:mcv_selectionColor="@color/transparent"
+                        app:mcv_selectionMode="range"
+                        app:mcv_weekDayTextAppearance="@style/WeekDayTextAppearance" />
+
+                    <RelativeLayout
+                        android:id="@+id/calendarLoadingOverlay"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/dark_primary"
+                        app:layout_constraintBottom_toTopOf="@+id/btnAddNewSession"
+                        app:layout_constraintEnd_toEndOf="@+id/calendarView"
+                        app:layout_constraintStart_toStartOf="@+id/calendarView"
+                        app:layout_constraintTop_toBottomOf="@id/recyclerViewSessions"
+                        >
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:indeterminateTint="@color/orange_primary"
+                        android:layout_centerInParent="true" />
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/btnAddNewSession"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/btn_bg"
+                        android:enabled="false"
+                        android:fontFamily="@font/lexend"
+                        android:text="@string/add_new_session"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+                    <TextView
+                        android:id="@+id/reviewsHeadline"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/orange_primary"
+                        android:fontFamily="@font/lexend"
+                        android:gravity="center"
+                        android:text="@string/my_reviews"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnAddNewSession" />
+
+                    <TextView
+                        android:id="@+id/noAvailableReviews"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/lexend"
+                        android:gravity="center"
+                        android:text="@string/you_have_no_available_reviews"
+                        android:textColor="@color/grey"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reviewsHeadline" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/totalRatingLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/noAvailableReviews"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center|top">
+
+                            <TextView
+                                android:id="@+id/totalRating"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="16dp"
+                                android:fontFamily="@font/lexend"
+                                android:text="4.5"
+                                android:textColor="@color/black"
+                                android:textSize="50sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textView20"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="16dp"
+                                android:fontFamily="@font/lexend"
+                                android:lines="2"
+                                android:text="@string/out_of_5_stars"
+                                android:textColor="@color/black"
+                                android:textSize="25sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/textView19"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </LinearLayout>
+
+                        <com.chaek.android.RatingBar
+                            android:id="@+id/ratingBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                            app:rating_flag="TEN"
+                            app:rating_star_color="@color/orange_primary"
+                            app:rating_star_empty_color="@color/grey"
+                            app:rating_star_height="40dp"
+                            app:rating_star_margin="5dp"
+                            app:rating_star_width="40dp"
+                            app:rating_start_count="9"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewReviews"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/totalRatingLayout"
+                        android:layoutDirection="ltr"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/lexend"
+            android:text="@string/account_type"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/topRelativeLayout">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/dark_primary"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/lexend"
+            android:gravity="center"
+            android:text="@string/profile"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            />
+    </RelativeLayout>
+
+
+</FrameLayout>

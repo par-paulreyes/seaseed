@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black_primary">#003B49</color> <!-- Deep ocean blue -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color><!-- Crisp white foam -->
+    <color name="red">#D4436C</color> <!-- Coral red -->
+    <color name="dark_primary">#FFFFFF</color> <!-- Deep sea green -->
+    <color name="orange_primary">#077caa</color> <!-- Removed, replaced with transparent -->
+    <color name="transparent">#00000000</color>
+    <color name="grey">#6B7F7B</color> <!-- Seaweed grey -->
+    <color name="greyV2">#4F6A6A</color> <!-- Slate sea grey -->
+    <color name="greyV3">#B0C4B1</color> <!-- Sea foam grey -->
+    <color name="yellow">#E0C87B</color> <!-- Sandy beach yellow -->
+    <color name="dark">#000000</color> <!-- Sandy beach yellow -->
+</resources>
