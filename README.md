@@ -60,7 +60,16 @@ Notifications are personalized based on user preferences, helping retain users t
 ## Prerequisites ⚓
 🔻***Install...*** : 
 <pre><code></code></pre>
-	
+## App Preview ⚰️
+
+<div align="center">
+<a href="https://youtu.be/pVdu-sCM3tw?si=8mHpMwFMXqwYBYGl">
+<img src="https://i.ibb.co/TvDdvS8/Untitled-design.png" height="auto" width="auto"><br><br></a>
+<img src="https://i.ibb.co/4wbnXSy/Untitled-design-1.png" height="auto" width="auto"><br><br>
+<img src="https://i.ibb.co/ypqypBc/Untitled-design-2.png" height="auto" width="auto"><br><br>
+<img src="https://i.ibb.co/2PV31HN/Untitled-design-3.png" height="auto" width="auto"><br><br>
+<img src="https://i.ibb.co/5BxVfq3/Untitled-design-4.png" height="auto" width="auto"><br><br>	
+</div>	
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br>
 
 ### <a name="members"></a>
