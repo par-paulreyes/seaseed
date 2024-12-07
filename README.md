@@ -8,7 +8,7 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Purpose](#purpose)
-- [Prerequisites](#prereqs)
+- [App Preview](#app)
 - [Member Portfolio](#members)
 
 
@@ -58,11 +58,8 @@ Notifications are personalized based on user preferences, helping retain users t
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br>
 
-### <a name="prereqs"></a>
-## Prerequisites ⚓
-🔻***Install...*** : 
-<pre><code></code></pre>
-## App Preview ⚰️
+### <a name="app"></a>
+## App Preview ⚓
 
 <div align="center">
 <a href="https://youtu.be/pVdu-sCM3tw?si=8mHpMwFMXqwYBYGl">
