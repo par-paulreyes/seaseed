@@ -1,4 +1,6 @@
-# SEASEED
+<p align="center">
+    <img src="https://i.ibb.co/1zrfLqV/Untitled-design-7.png" height="400" width="700"/><br><br>
+</p>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br>
 
