@@ -62,7 +62,6 @@ Notifications are personalized based on user preferences, helping retain users t
 ## App Preview ⚓
 
 <div align="center">
-<a href="https://youtu.be/pVdu-sCM3tw?si=8mHpMwFMXqwYBYGl">
 <img src="https://i.ibb.co/TvDdvS8/Untitled-design.png" height="auto" width="auto"><br><br></a>
 <img src="https://i.ibb.co/4wbnXSy/Untitled-design-1.png" height="auto" width="auto"><br><br>
 <img src="https://i.ibb.co/ypqypBc/Untitled-design-2.png" height="auto" width="auto"><br><br>
